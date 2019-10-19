@@ -1,0 +1,39 @@
+﻿@model Album
+
+@{
+    ViewData["Title"] = "Novo";
+}
+
+<div>
+    <h1 class="text-center">Criar Album</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2">
+        <form asp-action="Novo" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label">Título</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label">Descrição</label>
+                <textarea asp-for="Descricao" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataFoto" class="control-label">Data</label>
+                <input asp-for="DataFoto" class="form-control" type="date" />
+                <span asp-validation-for="DataFoto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

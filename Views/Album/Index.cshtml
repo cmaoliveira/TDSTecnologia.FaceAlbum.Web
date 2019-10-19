@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TDSTecnologia.FaceAlbum.Web.Models.Album>
+
+@{
+    ViewData["Title"] = "Albuns";
+}
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Título
+                </th>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Ações
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataFoto)
+                </td>
+                <td>
+                    <a asp-action="Alterar" asp-route-id="@item.AlbumId" class="btn btn-sm btn-warning">Atualizar</a> | 
+                    <a asp-action="Detalhe" asp-route-id="@item.AlbumId" class="btn btn-sm btn-primary">Fotos</a> 
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,42 @@
+﻿@model Album
+
+@{
+    ViewData["Title"] = "Atualizar " + Model.Titulo;
+}
+
+
+<div class="formulario">
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <h5>Atualizar Album @Model.Titulo</h5>
+            <hr />
+
+            <form asp-action="Alterar">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="AlbumId" />
+
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label">Título</label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label">Descrição</label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="DataFoto" class="control-label">Data</label>
+                    <input asp-for="DataFoto" class="form-control datepicker" type="text" />
+                    <span asp-validation-for="DataFoto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Atualizar" class="btn btn-primary" /> &nbsp;
+                    <a asp-action="Index" class="btn-small">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
